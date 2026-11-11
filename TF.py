@@ -1,3 +1,5 @@
+#Feito
+
 """Protótipo EDULU – interface em modo texto (estilo chatbot)."""
  
 from datetime import datetime
