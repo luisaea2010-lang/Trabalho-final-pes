@@ -6,7 +6,41 @@ class Pessoa:
         self.celular = celular
         self.login = login
         self.senha = senha
-        self.cartao = []
+
+    def autenticar(self, login, senha):
+        return self.login == login and self.senha == senha
+
+
+class Administrador(Usuario):
+    def __init__(self, login, senha):
+        super().__init__(login, senha)
+
+    def aceitar_justificativa(self, justificativa, cliente):
+        justificativa.aceitar()
+        cliente.desbloquear()
+
+    def recusar_justificativa(self, justificativa, cliente):
+        justificativa.recusar()
+        cliente.bloquear()
+
+
+class Cliente(Usuario):
+    def __init__(self, nome, telefone, endereco, cpf, login, senha):
+        super().__init__(login, senha)
+        self.nome = nome
+        self.telefone = telefone
+        self.endereco = endereco
+        self.cpf = cpf
+        self.bloqueado = False
+        self.cartoes = []
+        self.pedidos = []
+
+    def bloquear(self):
+        self.bloqueado = True
+
+    def desbloquear(self):
+        self.bloqueado = False
+
     def __repr__(self):
         return f"Nome: {self.nome} \n CPF: {self.cpf} \n Endereço: {self.endereço} \n Celular: {self.celular} \n Login: {self.login} \n Cartão(es): {self.cartao}"
     def cadastrar_cartao(self, numero_cartao, cvv, validade, titular):
