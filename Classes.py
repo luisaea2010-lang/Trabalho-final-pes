@@ -43,7 +43,7 @@ class Pagamento:
         self.forma_pagamento = forma_pagamento
         self.juros = juros
         self.data_limite = data_limite
-    def __repr__(self);:
+    def __repr__(self):
         return f"Valor: {self.valor} \n Forma de Pagamento: {self.forma_pagamento} \n Juros: {self.juros} \n Data Limite: {self.data_limite}"
     
 class Notificacao:
