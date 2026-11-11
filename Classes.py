@@ -1,13 +1,23 @@
 class Pessoa:
-    def __init__(self, nome, cpf, endereço,celular, login, senha, tipo):
+    def __init__(self, nome, cpf, endereço,celular, login, senha):
         self.nome = nome
         self.cpf = cpf
         self.endereço = endereço
         self.celular = celular
         self.login = login
         self.senha = senha
+        self.cartao = []
     def __repr__(self):
         return f"Nome: {self.nome} \n CPF: {self.cpf} \n Endereço: {self.endereço} \n Celular: {self.celular} \n Login: {self.login}"
+    def cadastrar_cartao(self, numero_cartao, cvv, validade, titular):
+        self.cartao.append(Cartao(numero_cartao, cvv, validade, titular))
+
+class Cartao():
+    def __init__(self, numero_cartao, cvv, validade, titular):
+        self.numero_cartao = numero_cartao
+        self.cvv = cvv
+        self.validade = validade
+        self.titular = titular
     
 class Trabalho:
     def __init__(self, descricao, datainicial, datafinal, status, valor):
