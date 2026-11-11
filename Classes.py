@@ -8,7 +8,7 @@ class Pessoa:
         self.senha = senha
         self.cartao = []
     def __repr__(self):
-        return f"Nome: {self.nome} \n CPF: {self.cpf} \n Endereço: {self.endereço} \n Celular: {self.celular} \n Login: {self.login}"
+        return f"Nome: {self.nome} \n CPF: {self.cpf} \n Endereço: {self.endereço} \n Celular: {self.celular} \n Login: {self.login} \n Cartão(es): {self.cartao}"
     def cadastrar_cartao(self, numero_cartao, cvv, validade, titular):
         self.cartao.append(Cartao(numero_cartao, cvv, validade, titular))
 
@@ -18,6 +18,8 @@ class Cartao():
         self.cvv = cvv
         self.validade = validade
         self.titular = titular
+    def __repr__(self):
+        return f'<Número do cartão: {self.numero_cartao} CVV: {self.cvv} Validade: {self.validade} Titular: {self.titular}>\n'
     
 class Trabalho:
     def __init__(self, descricao, datainicial, datafinal, status, valor):
