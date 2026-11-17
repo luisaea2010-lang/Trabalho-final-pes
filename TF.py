@@ -175,13 +175,13 @@ def adm_alterar_status_pagamento(sistema):
     pedido = escolher_pedido(sistema, cliente)
     if pedido is None:
         return
-    opcao = ler_inteiro("Qual o novo status do pagamento? \n 1 – pendente \n 2 – realizado \n 3 – atrasado \n")
+    opcao = ler_inteiro("Qual o novo status do pagamento? \n 1 – pendente \n 2 – realizado \n")
     if opcao is None:
         return
-    if opcao < 1 or opcao > 3:
+    if opcao < 1 or opcao > 2:
         print("Opção inválida!")
         return
-    pedido.pagamento.alterar_status(["pendente", "realizado", "atrasado"][opcao - 1])
+    pedido.pagamento.alterar_status(["pendente", "realizado"][opcao - 1])
     sistema.listar_pedidos(cliente)
     print("Sucesso!")
  
